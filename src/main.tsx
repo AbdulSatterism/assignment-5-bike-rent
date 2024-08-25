@@ -4,16 +4,21 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/router.tsx";
 import { Provider } from "react-redux";
-import { store } from "./redux/store.ts";
+import { persistor, store } from "./redux/store.ts";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Toaster } from "sonner";
+import { PersistGate } from "redux-persist/integration/react";
 
 AOS.init();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
+    <Toaster />
   </React.StrictMode>
 );

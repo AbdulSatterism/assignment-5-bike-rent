@@ -1,17 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { logout } from "../redux/features/auth/AuthSlice";
+// import { decodedToken } from "../utils/deocdedToken";
 
 const Navbar = () => {
+  const dispatch = useAppDispatch();
+  const { token } = useAppSelector((state) => state?.auth);
+
+  // const user = decodedToken(token)
+
+  const handleLogout = (e: any) => {
+    e.preventDefault();
+    dispatch(logout());
+  };
+
   const navItem = (
     <>
       <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/">Home</Link>
-      </li>
-      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
-        <Link to="/all-products">All Products</Link>
-      </li>
-      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
-        <Link to="/dashboard">Manage Product</Link>
       </li>
       <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/contact">Contact</Link>
@@ -19,6 +27,19 @@ const Navbar = () => {
       <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/about-us">About</Link>
       </li>
+
+      {token ? (
+        <button
+          onClick={handleLogout}
+          className="btn btn-ghost text-xl btn-md bg-white"
+        >
+          logout
+        </button>
+      ) : (
+        <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </>
   );
 
