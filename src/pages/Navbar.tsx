@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const navItem = (
     <>
-      <li className="text-xl text-white  hover:text-[#0fb89c]">
+      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/">Home</Link>
       </li>
-      <li className="text-xl text-white  hover:text-[#0fb89c]">
+      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/all-products">All Products</Link>
       </li>
-      <li className="text-xl text-white  hover:text-[#0fb89c]">
+      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/dashboard">Manage Product</Link>
       </li>
-      <li className="text-xl text-white  hover:text-[#0fb89c]">
+      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/contact">Contact</Link>
       </li>
-      <li className="text-xl text-white  hover:text-[#0fb89c]">
+      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
         <Link to="/about-us">About</Link>
       </li>
     </>
@@ -23,13 +24,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-[#04211c]  max-w-screen-xl mx-auto print:hidden">
+      <div className="navbar bg-[#FFF3F3] max-w-screen-xl mx-auto print:hidden">
         <div className="navbar-start">
           <div className="dropdown ">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost text-white lg:hidden"
+              className="btn btn-ghost text-[#000000] lg:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,14 +49,14 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  bg-[#04211c] z-10 rounded-box w-52"
+              className="menu menu-sm dropdown-content  bg-[#FFF3F3] z-10 rounded-box w-52"
             >
               {navItem}
             </ul>
           </div>
-          <div className="avatar w-20 text-white items-center">
-            <img className="" src="" alt="" />
-            <h1 className="text-2xl font-bold">Bike Share</h1>
+          <div className="avatar w-20 text-[#000000] items-center gap-2">
+            <img className="bg-[#FFF3F3]" src={logo} alt="" />
+            <h1 className="text-2xl font-bold uppercase ">Bike Share</h1>
           </div>
         </div>
         <div className="hidden navbar-center  lg:flex">
