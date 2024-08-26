@@ -27,11 +27,14 @@ const Navbar = () => {
       <li className="text-xl text-white  hover:text-[#0fb89c]">
         <Link to="/about-us">About</Link>
       </li>
+      <li className="text-xl text-white  hover:text-[#0fb89c]">
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
 
       {token ? (
         <button
           onClick={handleLogout}
-          className="btn btn-ghost text-xl btn-md "
+          className="btn btn-ghost text-xl btn-md hover:text-[#0fb89c] "
         >
           logout
         </button>

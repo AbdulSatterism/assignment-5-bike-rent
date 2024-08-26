@@ -1,4 +1,5 @@
 import Banner from "../banner/Banner";
+import Contact from "../contact/Contact";
 import Coupones from "../coupones/Coupones";
 import Features from "../features/Features";
 import Testimonial from "../Testimonial/Testimonial";
@@ -14,6 +15,7 @@ const Home = () => {
       <WhyChooseUs />
       <Coupones />
       {/* <Video /> */}
+      <Contact />
     </div>
   );
 };

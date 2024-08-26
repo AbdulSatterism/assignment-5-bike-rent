@@ -1,10 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRegisterMutation } from "../redux/features/auth/AuthApi";
+import { toast } from "sonner";
 
 const Signup = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+  const [Register, { isLoading }] = useRegisterMutation();
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const toastId = toast.loading("Register in");
+    const registerInfo = {
+      ...data,
+      role: "user",
+    };
+
+    try {
+      const result = await Register(registerInfo).unwrap();
+      console.log(result);
+      toast.success(result?.message, { id: toastId, duration: 2000 });
+      if (result?.success) {
+        navigate("/login");
+      }
+    } catch (err: any) {
+      toast.error(err?.error || err?.data?.message, {
+        id: toastId,
+        duration: 2000,
+      });
+    }
   };
 
   return (
@@ -68,7 +92,12 @@ const Signup = () => {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-[#053667] text-white">Register</button>
+            <button
+              disabled={isLoading}
+              className="btn bg-[#053667] text-white"
+            >
+              Register
+            </button>
           </div>
           <p className="text-center text-sm">
             Already Register?

@@ -4,6 +4,8 @@ import Home from "../pages/home/home/Home";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import AllTestimonial from "../pages/home/Testimonial/AllTestimonial";
+import DashboardLayout from "../layout/DashboardLayout";
+import UserProfile from "../pages/dashboard/user/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,21 @@ const router = createBrowserRouter([
       {
         path: "//all-testimonial",
         element: <AllTestimonial />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <DashboardLayout />,
+    children: [
+      //user part
+      {
+        index: true,
+        element: <UserProfile />,
+      },
+      {
+        path: "user-profile",
+        element: <UserProfile />,
       },
     ],
   },
