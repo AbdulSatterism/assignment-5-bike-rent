@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
 import { useGetAllReviewsQuery } from "../../../redux/features/reviews/ReviewsApi";
 import { TReview } from "../../../types/review";
 import Loading from "../../../components/Loading";
-import { FaAngleRight } from "react-icons/fa";
 
-const Testimonial = () => {
+const AllTestimonial = () => {
   const { data: reviews, isLoading } = useGetAllReviewsQuery(undefined);
 
   if (isLoading) {
@@ -13,15 +11,16 @@ const Testimonial = () => {
 
   return (
     <>
-      <div className="p-8 my-10 bg-white shadow-sm">
-        <h3 className="text-xl font-bold text-blue-600 uppercase text-start">
+      <div className="p-8 my-10 bg-gray-100">
+       
+        <h3 className="text-xl text-center font-bold text-blue-600 uppercase text-start">
           Testimonials
         </h3>
-        <h2 className="text-3xl font-bold mb-8 text-start">
+        <h2 className="text-3xl text-center font-bold mb-8 text-start">
           Hear it from them
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {reviews?.data?.slice(0, 3).map((review: TReview) => (
+          {reviews?.data?.map((review: TReview) => (
             <div
               key={review?._id}
               className="bg-white rounded-lg shadow-lg p-4 transition-all duration-700 hover:scale-110 "
@@ -34,15 +33,9 @@ const Testimonial = () => {
             </div>
           ))}
         </div>
-
-        <Link to="/all-testimonial">
-          <button className="mt-4 px-4 py-2  bg-blue-600 text-white rounded-lg text-xl items-center flex gap-2">
-            see all reviews <FaAngleRight />
-          </button>
-        </Link>
       </div>
     </>
   );
 };
 
-export default Testimonial;
+export default AllTestimonial;

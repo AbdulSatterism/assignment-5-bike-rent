@@ -18,25 +18,25 @@ const Navbar = () => {
 
   const navItem = (
     <>
-      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
+      <li className="text-xl text-white  hover:text-[#0fb89c]">
         <Link to="/">Home</Link>
       </li>
-      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
+      <li className="text-xl text-white  hover:text-[#0fb89c]">
         <Link to="/contact">Contact</Link>
       </li>
-      <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
+      <li className="text-xl text-white  hover:text-[#0fb89c]">
         <Link to="/about-us">About</Link>
       </li>
 
       {token ? (
         <button
           onClick={handleLogout}
-          className="btn btn-ghost text-xl btn-md bg-white"
+          className="btn btn-ghost text-xl btn-md "
         >
           logout
         </button>
       ) : (
-        <li className="text-xl text-[#000000]  hover:text-[#0fb89c]">
+        <li className="text-xl text-white  hover:text-[#0fb89c]">
           <Link to="/login">Login</Link>
         </li>
       )}
@@ -45,13 +45,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-[#FFF3F3] max-w-screen-xl mx-auto print:hidden">
+      <div className="navbar border-b-2 shadow-lg border-blue-600 fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown ">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost text-[#000000] lg:hidden"
+              className="btn btn-ghost text-gray-700 lg:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,13 +70,13 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  bg-[#FFF3F3] z-10 rounded-box w-52"
+              className="menu menu-sm dropdown-content  bg-gray-700 z-10 rounded-box w-52"
             >
               {navItem}
             </ul>
           </div>
-          <div className="avatar w-20 text-[#000000] items-center gap-2">
-            <img className="bg-[#FFF3F3]" src={logo} alt="" />
+          <div className="avatar w-20 text-white items-center gap-2">
+            <img src={logo} alt="" />
             <h1 className="text-2xl font-bold uppercase ">Bike Share</h1>
           </div>
         </div>
