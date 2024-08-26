@@ -25,12 +25,12 @@ const Login = () => {
       const user = decodedToken(result?.token);
       //set token and user in local state
       dispatch(setUser({ user, token: result?.token }));
-      toast.success("Logged in", { id: toastId, duration: 2000 });
+      toast.success(result?.message, { id: toastId, duration: 2000 });
       if (result?.success) {
         navigate("/");
       }
-    } catch (err) {
-      toast.error("something went wrong", {
+    } catch (err: any) {
+      toast.error(err?.error || err?.data?.message, {
         id: toastId,
         duration: 2000,
       });
@@ -66,10 +66,7 @@ const Login = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button
-              disabled={isLoading}
-              className="btn bg-[#053667] text-white"
-            >
+            <button disabled={isLoading} className="btn bg-blue-600 text-white">
               Login
             </button>
           </div>
