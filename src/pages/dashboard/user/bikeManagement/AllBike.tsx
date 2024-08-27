@@ -99,9 +99,11 @@ const AllBike = () => {
                   </h3>
                   <h3 className="mt-4 text-xl ">
                     {bike.isAvailable ? (
-                      <span className="text-blue-600">available</span>
+                      <span className="text-blue-600">Available</span>
                     ) : (
-                      <span className="line-through">not available</span>
+                      <span className="line-through text-red-400">
+                        Not available
+                      </span>
                     )}
                   </h3>
                 </div>
