@@ -6,6 +6,8 @@ import Login from "../pages/Login";
 import AllTestimonial from "../pages/home/Testimonial/AllTestimonial";
 import DashboardLayout from "../layout/DashboardLayout";
 import UserProfile from "../pages/dashboard/user/UserProfile";
+import AllBike from "../pages/dashboard/user/bikeManagement/AllBike";
+import BikeDetails from "../pages/dashboard/user/bikeManagement/BikeDetails";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "user-profile",
         element: <UserProfile />,
+      },
+      {
+        path: "all-bikes",
+        element: <AllBike />,
+      },
+      {
+        path: "bike-details/:id",
+        element: <BikeDetails />,
       },
     ],
   },

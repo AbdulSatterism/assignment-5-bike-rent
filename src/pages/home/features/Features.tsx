@@ -29,7 +29,28 @@ const Features = () => {
                   alt={bike.brand}
                   className="w-full h-48 object-cover"
                 />
-                <h3 className="mt-4 text-lg font-bold">{bike.brand}</h3>
+                <div className="flex justify-between my-2 px-2">
+                  <div>
+                    <h3 className="mt-4 text-lg font-bold">{bike.brand}</h3>
+                    <h3 className="mt-4 text-lg font-bold">{bike.name}</h3>
+                  </div>
+                  <div>
+                    <h3 className="mt-4 text-xl ">
+                      per-hour :{" "}
+                      <span className="text-orange-600 font-extrabold">
+                        {" "}
+                        ${bike.pricePerHour}
+                      </span>
+                    </h3>
+                    <h3 className="mt-4 text-xl ">
+                      {bike.isAvailable ? (
+                        <span className="text-blue-600">available</span>
+                      ) : (
+                        <span className="line-through">not available</span>
+                      )}
+                    </h3>
+                  </div>
+                </div>
                 <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg items-center flex gap-2">
                   View Detail <CgDetailsLess />
                 </button>

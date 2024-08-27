@@ -5,7 +5,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content  ">
         <label
@@ -23,7 +23,7 @@ const DashboardLayout = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 bg-gray-900 opacity-50  min-h-full text-xl">
+        <ul className="menu p-4 w-52 bg-gray-900 opacity-90 min-h-full text-xl">
           {/* Sidebar content here */}
 
           <li className="text-white">
@@ -33,9 +33,9 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
           <li className="text-white">
-            <NavLink to="/dashboard/manage-products">
+            <NavLink to="/dashboard/all-bikes">
               <MdManageAccounts />
-              Manage Products
+              All Bikes
             </NavLink>
           </li>
 

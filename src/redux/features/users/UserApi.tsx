@@ -7,8 +7,17 @@ const UserApi = baseApi.injectEndpoints({
         url: "/users/me",
         method: "GET",
       }),
+      providesTags: ["userMe"],
+    }),
+    updateUserMe: builder.mutation({
+      query: (updateInfo) => ({
+        url: "/users/me",
+        method: "PUT",
+        body: updateInfo,
+      }),
+      invalidatesTags: ["userMe"],
     }),
   }),
 });
 
-export const { useGetUserMeQuery } = UserApi;
+export const { useGetUserMeQuery, useUpdateUserMeMutation } = UserApi;
