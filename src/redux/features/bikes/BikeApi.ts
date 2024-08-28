@@ -8,14 +8,36 @@ const BikeApi = baseApi.injectEndpoints({
         method: "GET",
         params,
       }),
+      providesTags: ["bike"],
     }),
     getSingleBike: builder.query({
       query: (id: string) => ({
         url: `/bikes/${id}`,
         method: "GET",
       }),
+      providesTags: ["bike"],
+    }),
+
+    bookingBike: builder.mutation({
+      query: (bookingInfo) => ({
+        url: "/rentals",
+        method: "POST",
+        body: bookingInfo,
+      }),
+      invalidatesTags: ["bike"],
+    }),
+    myBooking: builder.query({
+      query: () => ({
+        url: "/rentals",
+        method: "GET",
+      }),
     }),
   }),
 });
 
-export const { useGetAllBikesQuery, useGetSingleBikeQuery } = BikeApi;
+export const {
+  useGetAllBikesQuery,
+  useGetSingleBikeQuery,
+  useBookingBikeMutation,
+  useMyBookingQuery,
+} = BikeApi;

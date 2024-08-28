@@ -73,7 +73,7 @@ const AllBike = () => {
           All bikes
         </h3>
 
-        <div className="grid  sm:grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bikes?.data?.map((bike: TBike) => (
             <div
               key={bike._id}

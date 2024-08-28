@@ -8,6 +8,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import UserProfile from "../pages/dashboard/user/UserProfile";
 import AllBike from "../pages/dashboard/user/bikeManagement/AllBike";
 import BikeDetails from "../pages/dashboard/user/bikeManagement/BikeDetails";
+import MyRentalPage from "../pages/dashboard/user/MyRentalPage";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "user-profile",
         element: <UserProfile />,
+      },
+      {
+        path: "my-rentals",
+        element: <MyRentalPage />,
       },
       {
         path: "all-bikes",

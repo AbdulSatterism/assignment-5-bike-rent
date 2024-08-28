@@ -76,7 +76,7 @@ const BikeDetails = () => {
         {isModalOpen && (
           <BookingModal
             bikeId={bike?.data?._id}
-            onClose={() => setIsModalOpen(false)}
+            setIsModalOpen={setIsModalOpen}
           />
         )}
       </div>

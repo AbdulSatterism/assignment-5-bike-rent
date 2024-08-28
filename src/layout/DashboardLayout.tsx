@@ -1,6 +1,6 @@
 import { CgProfile } from "react-icons/cg";
 import { FaBars, FaHome } from "react-icons/fa";
-import { MdManageAccounts } from "react-icons/md";
+import { MdDirectionsBike, MdElectricBike, MdManageAccounts } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
@@ -25,7 +25,7 @@ const DashboardLayout = () => {
         ></label>
         <ul className="menu p-4 w-52   bg-gray-900 opacity-90 min-h-full text-xl">
           {/* Sidebar content here */}
-
+          {/* user routes */}
           <li className="text-white">
             <NavLink to="/dashboard/user-profile">
               <CgProfile />
@@ -33,8 +33,14 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
           <li className="text-white">
+            <NavLink to="/dashboard/my-rentals">
+              <MdDirectionsBike />
+              My Rentals
+            </NavLink>
+          </li>
+          <li className="text-white">
             <NavLink to="/dashboard/all-bikes">
-              <MdManageAccounts />
+            <MdElectricBike />
               All Bikes
             </NavLink>
           </li>
