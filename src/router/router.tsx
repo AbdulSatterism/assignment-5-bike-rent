@@ -9,6 +9,8 @@ import UserProfile from "../pages/dashboard/user/UserProfile";
 import AllBike from "../pages/dashboard/user/bikeManagement/AllBike";
 import BikeDetails from "../pages/dashboard/user/bikeManagement/BikeDetails";
 import MyRentalPage from "../pages/dashboard/user/MyRentalPage";
+import BikeManagement from "../pages/dashboard/admin/BikeManagement";
+import UserManagement from "../pages/dashboard/admin/UserManagement";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,16 @@ const router = createBrowserRouter([
       {
         path: "bike-details/:id",
         element: <BikeDetails />,
+      },
+
+      // admin routes
+      {
+        path: "bike-management",
+        element: <BikeManagement />,
+      },
+      {
+        path: "user-management",
+        element: <UserManagement />,
       },
     ],
   },

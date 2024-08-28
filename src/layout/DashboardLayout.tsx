@@ -1,6 +1,6 @@
 import { CgProfile } from "react-icons/cg";
-import { FaBars, FaHome } from "react-icons/fa";
-import { MdDirectionsBike, MdElectricBike, MdManageAccounts } from "react-icons/md";
+import { FaBars, FaHome, FaUsers } from "react-icons/fa";
+import { MdDirectionsBike, MdElectricBike } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
@@ -40,8 +40,23 @@ const DashboardLayout = () => {
           </li>
           <li className="text-white">
             <NavLink to="/dashboard/all-bikes">
-            <MdElectricBike />
+              <MdElectricBike />
               All Bikes
+            </NavLink>
+          </li>
+
+          {/* admin */}
+          <div className="divider divider-neutral"></div>
+          <li className="text-white">
+            <NavLink to="/dashboard/bike-management">
+              <MdElectricBike />
+              Bike Manage
+            </NavLink>
+          </li>
+          <li className="text-white">
+            <NavLink to="/dashboard/user-management">
+              <FaUsers />
+              User Manage
             </NavLink>
           </li>
 

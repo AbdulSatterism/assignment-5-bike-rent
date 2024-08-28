@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useFormContext } from "react-hook-form";
 
 type TModalInputProps = {
@@ -5,6 +6,7 @@ type TModalInputProps = {
   label?: string;
   type?: string;
   placeholder?: string;
+  defaultValue?: any;
 };
 
 const ModalInput = ({
@@ -12,6 +14,7 @@ const ModalInput = ({
   label,
   type = "text",
   placeholder,
+  defaultValue,
 }: TModalInputProps) => {
   const { register } = useFormContext();
 
@@ -22,9 +25,11 @@ const ModalInput = ({
           {label}
         </label>
       )}
+      {/* , { required: true } */}
       <input
         {...register(name)}
         type={type}
+        defaultValue={defaultValue}
         placeholder={placeholder}
         className="input input-bordered w-full"
       />

@@ -3,12 +3,12 @@ export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  initialData: { [key: string]: any };
   onSubmit: (formData: { [key: string]: any }) => void;
   fields: Array<{
+    defaultValue?: any;
     name: string;
     type: string;
-    placeholder: string;
+    placeholder?: string;
     label: string;
   }>;
 }

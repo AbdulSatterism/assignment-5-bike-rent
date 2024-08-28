@@ -31,9 +31,9 @@ const MyRentalPage = () => {
 
   return (
     <div className="container mx-auto p-8  shadow-sm">
-      <h1 className="text-3xl font-bold text-blue-600 mb-8 text-center">
-        My Rentals
-      </h1>
+      <h3 className="text-2xl text-center mb-6 font-bold text-blue-600 uppercase ">
+        my rentals
+      </h3>
 
       {/* Tabs */}
       <div className="flex mb-8 space-x-4">

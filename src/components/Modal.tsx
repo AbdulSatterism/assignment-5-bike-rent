@@ -1,30 +1,33 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { FormProvider, useForm } from "react-hook-form";
+import {
+  FieldValues,
+  FormProvider,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
 import { ModalProps } from "../types/modal.type";
 import ModalInput from "./ModalInput";
 
-const Modal = ({
-  isOpen,
-  onClose,
-  title,
-  initialData,
-  onSubmit,
-  fields,
-}: ModalProps) => {
-  const methods = useForm({ defaultValues: initialData });
+const Modal = ({ isOpen, onClose, title, onSubmit, fields }: ModalProps) => {
+  const methods = useForm();
 
-  const handleSubmit = (data: { [key: string]: any }) => {
+  const handleSubmit: SubmitHandler<FieldValues> = (data: {
+    [key: string]: any;
+  }) => {
     onSubmit(data);
+    methods.reset();
     onClose();
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal modal-open">
+    <div className="modal modal-open ">
       <div className="modal-box">
-        <h3 className="font-bold text-lg">{title}</h3>
+        <h3 className="text-2xl text-center mb-6 font-bold text-blue-600 uppercase ">
+          {title}
+        </h3>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(handleSubmit)}>
             <div className="py-4">
@@ -33,6 +36,7 @@ const Modal = ({
                   key={field.name}
                   name={field.name}
                   type={field.type}
+                  defaultValue={field.defaultValue}
                   placeholder={field.placeholder}
                   label={field.label}
                 />
@@ -43,7 +47,7 @@ const Modal = ({
                 Cancel
               </button>
               <button type="submit" className="btn bg-blue-600">
-                update
+                submit
               </button>
             </div>
           </form>

@@ -34,14 +34,14 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="hero p-4 bg-white shadow-sm min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse gap-4">
+    <div className="hero p-4   min-h-screen">
+      <div className="hero-content p-6 w-full shadow-sm  shadow-blue-600 flex-col lg:flex-row-reverse gap-6">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTALYMcTYF3DExgHovymgM3aXLNOAj-xmQMAl7eCwne5Q&s"
-          className="sm:w-full lg:w-1/2 rounded-lg shadow-sm shadow-blue-600"
+          className="sm:w-full lg:w-1/3 rounded-lg"
         />
-        <div className="">
-          <h1 className="text-3xl font-bold">
+        <div className="sm:w-full lg:w-2/3">
+          <h1 className="text-4xl font-bold">
             Welcome
             <span className="text-blue-600"> {userData?.data?.name}</span>
           </h1>
@@ -64,26 +64,30 @@ const UserProfile = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="Update Profile"
-        initialData={{
-          name: userData?.data?.name || "",
-          email: userData?.data?.email || "",
-          phone: userData?.data?.phone || "",
-          address: userData?.data?.address || "",
-        }}
         onSubmit={handleUpdateProfile}
         fields={[
-          { name: "name", type: "text", placeholder: "Name", label: "Name" },
+          {
+            name: "name",
+            defaultValue: userData?.data?.name,
+            type: "text",
+            label: "Name",
+          },
           {
             name: "email",
             type: "email",
-            placeholder: "Email",
+            defaultValue: userData?.data?.email,
             label: "Email",
           },
-          { name: "phone", type: "text", placeholder: "Phone", label: "Phone" },
+          {
+            name: "phone",
+            defaultValue: userData?.data?.phone,
+            type: "text",
+            label: "Phone",
+          },
           {
             name: "address",
             type: "text",
-            placeholder: "Address",
+            defaultValue: userData?.data?.address,
             label: "Address",
           },
         ]}

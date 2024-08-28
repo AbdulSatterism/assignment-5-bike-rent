@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { baseApi } from "../../api/baseApi";
 
 const BikeApi = baseApi.injectEndpoints({
@@ -16,6 +17,32 @@ const BikeApi = baseApi.injectEndpoints({
         method: "GET",
       }),
       providesTags: ["bike"],
+    }),
+
+    createBike: builder.mutation({
+      query: (bikeInfo) => ({
+        url: "/bikes",
+        method: "POST",
+        body: bikeInfo,
+      }),
+      invalidatesTags: ["bike"],
+    }),
+
+    updateBike: builder.mutation({
+      query: (args) => ({
+        url: `/bikes/${args.id}`,
+        method: "PUT",
+        body: args.updateInfo,
+      }),
+      invalidatesTags: ["bike"],
+    }),
+
+    deleteBike: builder.mutation({
+      query: (id) => ({
+        url: `/bikes/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["bike"],
     }),
 
     bookingBike: builder.mutation({
@@ -40,4 +67,7 @@ export const {
   useGetSingleBikeQuery,
   useBookingBikeMutation,
   useMyBookingQuery,
+  useCreateBikeMutation,
+  useUpdateBikeMutation,
+  useDeleteBikeMutation,
 } = BikeApi;
