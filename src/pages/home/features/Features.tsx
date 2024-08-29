@@ -2,6 +2,7 @@ import { useGetAllBikesQuery } from "../../../redux/features/bikes/BikeApi";
 import { TBike } from "../../../types/bike.type";
 import Loading from "../../../components/Loading";
 import { CgDetailsLess } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 const Features = () => {
   const { data: bikes, isLoading } = useGetAllBikesQuery(undefined);
@@ -51,9 +52,11 @@ const Features = () => {
                     </h3>
                   </div>
                 </div>
-                <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg items-center flex gap-2">
-                  View Detail <CgDetailsLess />
-                </button>
+                <Link to={`/dashboard/bike-details/${bike?._id}`}>
+                  <button className="mt-2 px-4 py-2 btn bg-blue-600 text-white rounded-lg items-center flex gap-2">
+                    View Detail <CgDetailsLess />
+                  </button>
+                </Link>
               </div>
             )
         )}

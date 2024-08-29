@@ -15,8 +15,8 @@ export type TBike = {
 
 export type TRental = {
   _id: string;
-  userId: string;
-  bikeId: BikeId;
+  userId?: UserId;
+  bikeId?: BikeId;
   startTime: string;
   returnTime: string;
   payment: string;
@@ -37,4 +37,17 @@ export interface BikeId {
   model: string;
   brand: string;
   __v: number;
+}
+
+export interface UserId {
+  _id: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  role: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  isDeleted: boolean;
 }

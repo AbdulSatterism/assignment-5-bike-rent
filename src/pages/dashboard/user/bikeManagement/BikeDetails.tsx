@@ -66,20 +66,20 @@ const BikeDetails = () => {
 
         <p>{bike?.data?.description}</p>
       </div>
-      <div className="">
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg items-center flex gap-2"
-        >
-          Book Now <MdDirectionsBike />
-        </button>
-        {isModalOpen && (
-          <BookingModal
-            bikeId={bike?.data?._id}
-            setIsModalOpen={setIsModalOpen}
-          />
-        )}
-      </div>
+
+      <button
+        disabled={!bike?.data?.isAvailable}
+        onClick={() => setIsModalOpen(true)}
+        className="mt-2 px-4 py-2 btn bg-blue-600 text-white rounded-lg items-center flex gap-2"
+      >
+        Book Now <MdDirectionsBike />
+      </button>
+      {isModalOpen && (
+        <BookingModal
+          bikeId={bike?.data?._id}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
     </div>
   );
 };

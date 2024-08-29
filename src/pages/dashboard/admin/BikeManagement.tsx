@@ -17,7 +17,7 @@ const BikeManagement = () => {
   const [model, setModel] = useState("");
   const [updateBikeInfo, setUpdateBikeInfo] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [deleteBike] = useDeleteBikeMutation();
+  const [deleteBike, { isLoading: deleteLoading }] = useDeleteBikeMutation();
   const { data: bikes, isLoading } = useGetAllBikesQuery(
     {
       search,
@@ -134,7 +134,8 @@ const BikeManagement = () => {
                 <th>Brand</th>
                 <th>Price</th>
                 <th>Available</th>
-                <th>Actions</th>
+                <th>Update</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -175,13 +176,16 @@ const BikeManagement = () => {
                     <button
                       disabled={isLoading}
                       onClick={() => handleUpdate(bike)}
-                      className="bg-orange-500 hover:bg-orange-300 text-white px-4 py-2 rounded mr-2"
+                      className="bg-orange-500 btn hover:bg-orange-300 text-white px-4 py-2 rounded mr-2"
                     >
                       Update
                     </button>
+                  </td>
+                  <td>
                     <button
+                      disabled={deleteLoading}
                       onClick={() => handleDelete(bike?._id)}
-                      className="bg-red-500 hover:bg-red-300 text-white px-4 py-2 rounded"
+                      className="bg-red-500 btn hover:bg-red-300 text-white px-4 py-2 rounded"
                     >
                       Delete
                     </button>

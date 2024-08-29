@@ -1,28 +1,40 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import { useMyBookingQuery } from "../../../redux/features/bikes/BikeApi";
+import {
+  useMyBookingQuery,
+  usePaymentMutation,
+} from "../../../redux/features/bikes/BikeApi";
 import { TRental } from "../../../types/bike.type";
 
 const MyRentalPage = () => {
   const [activeTab, setActiveTab] = useState<"paid" | "unpaid">("unpaid");
   const { data: rentals, isLoading } = useMyBookingQuery(undefined);
-  // const [confirmPayment] = useConfirmPaymentMutation();
+  const [payment, { isLoading: paymetLoading }] = usePaymentMutation();
   // const history = useHistory();
 
   const handleTabSwitch = (tab: "paid" | "unpaid") => {
     setActiveTab(tab);
   };
 
-  const handlePayment = async (rentalId: string) => {
-    console.log(rentalId);
-    //   try {
-    //     // Mock payment processing and move to paid
-    //     const paymentStatus = 'Paid';
-    //     await confirmPayment({ rentalId, paymentStatus }).unwrap();
-    //     history.push(`/payment/${rentalId}`);
-    //   } catch (error) {
-    //     console.error('Payment failed:', error);
-    //     alert('Payment failed. Please try again.');
-    //   }
+  const handlePayment = async (rental: any) => {
+    const paymentInfo = {
+      customerName: rental?.userId?.name,
+      customerPhone: rental?.userId?.phone,
+      customerAddress: rental?.userId?.address,
+      customerEmail: rental?.userId?.email,
+      amount: rental?.totalCost,
+      rentalId: rental?._id,
+    };
+
+    try {
+      const res = await payment(paymentInfo).unwrap();
+      console.log(res.data.payment_url);
+      if (res?.success) {
+        window.location.href = res.data.payment_url;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const filteredRentals = rentals?.data?.filter(
@@ -95,8 +107,9 @@ const MyRentalPage = () => {
                 {/* Pay Button for Unpaid Rentals */}
                 {activeTab === "unpaid" && (
                   <button
-                    onClick={() => handlePayment(rental._id)}
-                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-300"
+                    disabled={paymetLoading}
+                    onClick={() => handlePayment(rental)}
+                    className="mt-4 px-4 py-2 btn bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-300"
                   >
                     Pay Now
                   </button>
@@ -106,7 +119,7 @@ const MyRentalPage = () => {
           ))}
         </div>
       ) : (
-        <p className="text-red-600">
+        <p className="text-red-600 text-center py-6 text-3xl">
           No {activeTab.toLowerCase()} rentals available.
         </p>
       )}

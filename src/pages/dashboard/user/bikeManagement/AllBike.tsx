@@ -109,7 +109,10 @@ const AllBike = () => {
                 </div>
               </div>
               <Link to={`/dashboard/bike-details/${bike?._id}`}>
-                <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg items-center flex gap-2">
+                <button
+                  disabled={!bike.isAvailable}
+                  className="mt-2 px-4 py-2 btn bg-blue-600 text-white rounded-lg items-center flex gap-2"
+                >
                   View Detail <CgDetailsLess />
                 </button>
               </Link>

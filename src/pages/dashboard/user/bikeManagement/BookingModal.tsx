@@ -18,7 +18,7 @@ const BookingModal = ({ bikeId, setIsModalOpen }: TBook) => {
 
     try {
       const result = await Booking(bookingInfo).unwrap();
-      console.log(result);
+
       if (result?.success) {
         toast.success(result?.message, { id: toastId, duration: 2000 });
         setIsModalOpen(false);

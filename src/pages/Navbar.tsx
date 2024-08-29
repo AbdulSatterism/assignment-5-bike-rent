@@ -25,7 +25,7 @@ const Navbar = () => {
         <Link to="/contact">Contact</Link>
       </li>
       <li className="text-xl text-white  hover:text-[#0fb89c]">
-        <Link to="/about-us">About</Link>
+        <Link to="/about">About</Link>
       </li>
       <li className="text-xl text-white  hover:text-[#0fb89c]">
         <Link to="/dashboard">Dashboard</Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar border-b-2 shadow-lg border-blue-600 fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl mx-auto">
+      <div className="navbar border-b-2 shadow-lg border-blue-600  bg-gray-900 text-white max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown ">
             <div

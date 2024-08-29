@@ -45,19 +45,38 @@ const BikeApi = baseApi.injectEndpoints({
       invalidatesTags: ["bike"],
     }),
 
+    myBooking: builder.query({
+      query: () => ({
+        url: "/rentals",
+        method: "GET",
+      }),
+      providesTags: ["booking"],
+    }),
+
     bookingBike: builder.mutation({
       query: (bookingInfo) => ({
         url: "/rentals",
         method: "POST",
         body: bookingInfo,
       }),
-      invalidatesTags: ["bike"],
+      invalidatesTags: ["bike", "booking"],
     }),
-    myBooking: builder.query({
-      query: () => ({
-        url: "/rentals",
-        method: "GET",
+
+    returnRentalBike: builder.mutation({
+      query: (id) => ({
+        url: `/rentals/${id}/return`,
+        method: "PUT",
       }),
+      invalidatesTags: ["booking", "bike"],
+    }),
+
+    payment: builder.mutation({
+      query: (paymentInfo) => ({
+        url: `/rental-pay/pay`,
+        method: "POST",
+        body: paymentInfo,
+      }),
+      invalidatesTags: ["booking", "bike"],
     }),
   }),
 });
@@ -70,4 +89,6 @@ export const {
   useCreateBikeMutation,
   useUpdateBikeMutation,
   useDeleteBikeMutation,
+  useReturnRentalBikeMutation,
+  usePaymentMutation,
 } = BikeApi;

@@ -11,6 +11,12 @@ import BikeDetails from "../pages/dashboard/user/bikeManagement/BikeDetails";
 import MyRentalPage from "../pages/dashboard/user/MyRentalPage";
 import BikeManagement from "../pages/dashboard/admin/BikeManagement";
 import UserManagement from "../pages/dashboard/admin/UserManagement";
+import ReturnRentalBike from "../pages/dashboard/admin/ReturnRentalBike";
+import NotFound from "../pages/NotFound";
+import Contact from "../pages/home/contact/Contact";
+import About from "../pages/About";
+import ProtectedRoute from "./ProtectedRoute";
+import AdminProtected from "./AdminProtected";
 
 const router = createBrowserRouter([
   {
@@ -30,14 +36,26 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "//all-testimonial",
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/all-testimonial",
         element: <AllTestimonial />,
       },
     ],
   },
   {
     path: "dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
     children: [
       //user part
       {
@@ -63,14 +81,53 @@ const router = createBrowserRouter([
 
       // admin routes
       {
+        index: true,
+        element: (
+          <AdminProtected>
+            <UserProfile />
+          </AdminProtected>
+        ),
+      },
+      {
+        path: "admin-profile",
+        element: (
+          <AdminProtected>
+            {" "}
+            <UserProfile />
+          </AdminProtected>
+        ),
+      },
+      {
         path: "bike-management",
-        element: <BikeManagement />,
+        element: (
+          <AdminProtected>
+            <BikeManagement />
+          </AdminProtected>
+        ),
       },
       {
         path: "user-management",
-        element: <UserManagement />,
+        element: (
+          <AdminProtected>
+            {" "}
+            <UserManagement />
+          </AdminProtected>
+        ),
+      },
+      {
+        path: "return-rental-bike",
+        element: (
+          <AdminProtected>
+            {" "}
+            <ReturnRentalBike />
+          </AdminProtected>
+        ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
