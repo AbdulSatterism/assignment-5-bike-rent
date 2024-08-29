@@ -13,10 +13,10 @@ const AllTestimonial = () => {
     <>
       <div className="p-8 my-10 bg-gray-100">
        
-        <h3 className="text-xl text-center font-bold text-blue-600 uppercase text-start">
+        <h3 className="text-xl text-center font-bold text-blue-600 uppercase ">
           Testimonials
         </h3>
-        <h2 className="text-3xl text-center font-bold mb-8 text-start">
+        <h2 className="text-3xl text-center font-bold mb-8 ">
           Hear it from them
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -15,12 +15,6 @@ const Banner = () => {
             Rent a motorcycle <br />
             anywhere in the BD
           </h1>
-
-          <input
-            type="text"
-            placeholder="Search by bike name"
-            className="input input-bordered input-info w-full max-w-xl"
-          />
         </div>
       </div>
     </div>

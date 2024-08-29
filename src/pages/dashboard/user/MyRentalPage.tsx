@@ -43,7 +43,7 @@ const MyRentalPage = () => {
 
   return (
     <div className="container mx-auto p-8  shadow-sm">
-      <h3 className="text-2xl text-center mb-6 font-bold text-blue-600 uppercase ">
+      <h3 className="text-xl text-center mb-6 font-bold text-blue-600 uppercase ">
         my rentals
       </h3>
 
@@ -90,18 +90,35 @@ const MyRentalPage = () => {
               <div className="flex flex-col justify-between">
                 {/* Rental Details */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800">
+                  <h3 className="text-xl mb-2 font-bold text-gray-800">
                     {rental?.bikeId?.name}
                   </h3>
-                  <p className="text-gray-600">Start: {rental.startTime}</p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-700 mb-2 font-bold">
+                    Start: {rental.startTime}
+                  </p>
+                  <p className="text-gray-700 mb-2  font-bold">
                     Return:{" "}
                     {rental.returnTime ? rental.returnTime : "not return yet"}
                   </p>
-                  <p className="text-gray-600">payment: {rental.payment}</p>
+                  <p className="text-gray-700 mb-2  font-bold">
+                    payment:{" "}
+                    {rental.payment === "paid" ? (
+                      <span className="text-blue-600 font-extrabold">
+                        {rental.payment}
+                      </span>
+                    ) : (
+                      <span className="text-orange-600 font-extrabold">
+                        {rental.payment}
+                      </span>
+                    )}
+                  </p>
 
-                  <p className="text-gray-800 font-medium">
-                    Cost: {rental.totalCost} TK
+                  <p className="text-gray-700 font-bold">
+                    Cost:{" "}
+                    <span className="text-orange-600 font-extrabold">
+                      {rental.totalCost}
+                    </span>
+                    TK
                   </p>
                 </div>
                 {/* Pay Button for Unpaid Rentals */}

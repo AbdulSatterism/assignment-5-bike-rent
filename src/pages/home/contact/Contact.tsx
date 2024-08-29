@@ -74,28 +74,28 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-blue-600 uppercase">
                 Contact Information
               </h3>
-              <p className="mt-4 text-[#04211c]">
+              <p className="mt-4 text-gray-500">
                 Feel free to reach out to us through any of the following
                 methods.
               </p>
             </div>
             <div className="mt-4">
-              <h4 className="text-lg font-semibold text-[#04211c]">
+              <h4 className="text-lg font-semibold text-gray-500">
                 Company Location
               </h4>
-              <p className="text-gray-600">
+              <p className="text-gray-500">
                 Mirpur-10,Dhaka
                 <br />
                 Bangladesh
               </p>
             </div>
             <div className="mt-4">
-              <h4 className="text-lg font-semibold text-[#04211c]">Email</h4>
-              <p className="text-gray-600">abdulsatter.ism@gmail.com</p>
+              <h4 className="text-lg font-semibold text-gray-500">Email</h4>
+              <p className="text-gray-500">abdulsatter.ism@gmail.com</p>
             </div>
             <div className="mt-4">
-              <h4 className="text-lg font-semibold text-[#04211c]">Mobile</h4>
-              <p className="text-gray-600">(+880)- 1710426245</p>
+              <h4 className="text-lg font-semibold text-gray-500">Mobile</h4>
+              <p className="text-gray-500">(+880)- 1710426245</p>
             </div>
           </div>
         </div>

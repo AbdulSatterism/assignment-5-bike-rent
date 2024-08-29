@@ -29,7 +29,7 @@ const AllBike = () => {
 
   return (
     <>
-      <div className="p-8  shadow-sm grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="p-8  shadow-sm text-gray-500 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <input
           type="text"
           value={search}

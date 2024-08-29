@@ -1,16 +1,33 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CgProfile } from "react-icons/cg";
 import { FaBars, FaHome, FaUsers } from "react-icons/fa";
 import { MdDirectionsBike, MdElectricBike } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAppSelector } from "../redux/hooks";
+import { useEffect, useState } from "react";
 
 const DashboardLayout = () => {
   const { user } = useAppSelector((state) => state?.auth);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content  ">
+      <div className="drawer-content  bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 ">
         <label
           htmlFor="my-drawer-2"
           className="btn  btn-active btn-ghost drawer-button lg:hidden"
@@ -83,6 +100,14 @@ const DashboardLayout = () => {
               <FaHome />
               Home
             </NavLink>
+          </li>
+          <li>
+            <button
+              className="p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              onClick={toggleTheme}
+            >
+              {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+            </button>
           </li>
         </ul>
       </div>

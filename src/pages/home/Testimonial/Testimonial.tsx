@@ -13,7 +13,7 @@ const Testimonial = () => {
 
   return (
     <>
-      <div className="p-8 my-10 bg-white shadow-sm">
+      <div className="p-8 my-10  shadow-sm">
         <h3 className="text-xl font-bold text-blue-600 uppercase text-start">
           Testimonials
         </h3>
@@ -24,7 +24,7 @@ const Testimonial = () => {
           {reviews?.data?.slice(0, 3).map((review: TReview) => (
             <div
               key={review?._id}
-              className="bg-white rounded-lg shadow-lg p-4 transition-all duration-700 hover:scale-110 "
+              className="shadow-blue-600 shadow-md border rounded-lg  p-4 transition-all duration-700 hover:scale-110 "
             >
               <h1 className="text-xl font-bold  text-center shadow-sm mb-2">
                 {review?.customerName}
@@ -36,8 +36,8 @@ const Testimonial = () => {
         </div>
 
         <Link to="/all-testimonial">
-          <button className="mt-4 px-4 py-2  bg-blue-600 text-white rounded-lg text-xl items-center flex gap-2">
-            see all reviews <FaAngleRight />
+          <button className="mt-4 px-4 py-2 btn bg-blue-600 text-white rounded-lg text-xl items-center flex gap-2">
+            all Testimonial <FaAngleRight />
           </button>
         </Link>
       </div>

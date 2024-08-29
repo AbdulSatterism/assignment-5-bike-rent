@@ -3,13 +3,27 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { logout } from "../redux/features/auth/AuthSlice";
+import { useEffect, useState } from "react";
 // import { decodedToken } from "../utils/deocdedToken";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state?.auth);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  // const user = decodedToken(token)
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   const handleLogout = (e: any) => {
     e.preventDefault();
@@ -86,16 +100,14 @@ const Navbar = () => {
         <div className="hidden navbar-center  lg:flex">
           <ul className="px-1 menu menu-horizontal">{navItem}</ul>
         </div>
-        {/* <div className="navbar-end">
-          <Link to="/cart-details">
-            <div className="text-2xl flex text-white mr-2">
-              <MdShoppingCartCheckout />
-              <div className="badge shadow-xl  font-bold text-[#070811]">
-                +{cartProduct?.length}
-              </div>
-            </div>
-          </Link>
-        </div> */}
+        <div className="navbar-end">
+          <button
+            className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </button>
+        </div>
       </div>
     </>
   );
