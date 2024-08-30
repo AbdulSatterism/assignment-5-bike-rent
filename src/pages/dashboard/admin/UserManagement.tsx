@@ -80,7 +80,7 @@ const UserManagement = () => {
 
         <div className="overflow-x-auto ">
           <table className="table w-full">
-            <thead className="text-xl">
+            <thead className="text-xl text-gray-400">
               <tr>
                 <th>Name</th>
                 <th>Email</th>
@@ -96,7 +96,7 @@ const UserManagement = () => {
                 (user: TUser) =>
                   !user?.isDeleted && (
                     <tr
-                      className="items-center font-bold text-gray-500"
+                      className="items-center font-bold text-gray-400"
                       key={user._id}
                     >
                       <td>{user?.name}</td>
