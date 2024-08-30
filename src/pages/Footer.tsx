@@ -7,8 +7,8 @@ const Footer = () => {
     <div className="mt-20 mb-0 shadow-sm shadow-blue-600">
       <footer className="footer justify-evenly p-12 bg-gray-900 text-white">
         <nav>
-          <h6 className="footer-title">Bike Share</h6>
-          <Link to="/about-us" className="link link-hover">
+          <h6 className="footer-title">Bike Rider</h6>
+          <Link to="/about" className="link link-hover">
             About us
           </Link>
           <Link to="/contact" className="link link-hover">
@@ -23,6 +23,19 @@ const Footer = () => {
           <Link to="/" className="link link-hover">
             Home
           </Link>
+          <Link to="/about" className="link link-hover">
+            About
+          </Link>
+
+          <Link to="/contact" className="link link-hover">
+            Contact
+          </Link>
+          <Link to="/login" className="link link-hover">
+            Login
+          </Link>
+          <Link to="/register" className="link link-hover">
+            Register
+          </Link>
         </nav>
       </footer>
 
@@ -34,13 +47,13 @@ const Footer = () => {
             </div>
           </div>
           <p>
-            Bike Share
+            Bike Rider
             <br />
             We provide best services and faith
           </p>
         </aside>
 
-        <nav className="md:place-self-center md:justify-self-center">
+        <nav className="md:place-self-center text-white md:justify-self-center">
           <div className="grid grid-flow-col gap-4">
             <Link to="https://www.facebook.com/abdul.satter.1614">
               <svg width="32" viewBox="0 0 24 24" className="fill-current ">

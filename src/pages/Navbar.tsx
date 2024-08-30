@@ -94,7 +94,7 @@ const Navbar = () => {
           </div>
           <div className="avatar w-20 text-white items-center gap-2">
             <img src={logo} alt="" />
-            <h1 className="text-2xl font-bold uppercase ">Bike Share</h1>
+            <h1 className="text-2xl font-bold uppercase ">Bike Rider</h1>
           </div>
         </div>
         <div className="hidden navbar-center  lg:flex">

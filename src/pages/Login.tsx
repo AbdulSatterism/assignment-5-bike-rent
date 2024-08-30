@@ -27,7 +27,7 @@ const Login = () => {
       dispatch(setUser({ user, token: result?.token }));
       toast.success(result?.message, { id: toastId, duration: 2000 });
       if (result?.success) {
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (err: any) {
       toast.error(err?.error || err?.data?.message, {
