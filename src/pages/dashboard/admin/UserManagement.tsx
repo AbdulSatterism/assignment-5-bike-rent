@@ -12,7 +12,7 @@ import UserUpdateModal from "../user/UserUpdateModal";
 import { useState } from "react";
 
 const UserManagement = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const { data: userData, isLoading } = useAllUserQuery(undefined);
   const [updateUserInfo, setUpdateUserInfo] = useState({});
   const [toggleRole, { isLoading: roleLoading }] = useToggleRoleMutation();
@@ -34,7 +34,7 @@ const UserManagement = () => {
   };
 
   const handleUpdate = (user: TUser) => {
-    setIsModalOpen(true);
+    setIsUserModalOpen(true);
     setUpdateUserInfo(user);
   };
 
@@ -136,11 +136,6 @@ const UserManagement = () => {
                           update
                         </button>
                       </td>
-                      <UserUpdateModal
-                        isModalOpen={isModalOpen}
-                        setIsModalOpen={setIsModalOpen}
-                        user={updateUserInfo}
-                      />
                     </tr>
                   )
               )}
@@ -148,6 +143,11 @@ const UserManagement = () => {
           </table>
         </div>
       </div>
+      <UserUpdateModal
+        isUserModalOpen={isUserModalOpen}
+        setIsUserModalOpen={setIsUserModalOpen}
+        user={updateUserInfo}
+      />
     </>
   );
 };

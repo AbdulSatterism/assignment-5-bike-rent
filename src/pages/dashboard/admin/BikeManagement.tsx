@@ -17,6 +17,7 @@ const BikeManagement = () => {
   const [model, setModel] = useState("");
   const [updateBikeInfo, setUpdateBikeInfo] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCreateBikeModalOpen, setIsCreateBikeModalOpen] = useState(false);
   const [deleteBike, { isLoading: deleteLoading }] = useDeleteBikeMutation();
   const { data: bikes, isLoading } = useGetAllBikesQuery(
     {
@@ -117,9 +118,12 @@ const BikeManagement = () => {
           </button>
         </div>
         {/* bike create in create bike route */}
-        <CreateBike isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+        <CreateBike
+          isCreateBikeModalOpen={isCreateBikeModalOpen}
+          setIsCreateBikeModalOpen={setIsCreateBikeModalOpen}
+        />
         <button
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => setIsCreateBikeModalOpen(true)}
           className="bg-blue-600 hover:bg-[#32665e] text-white px-4 py-2 rounded mb-4"
         >
           Create New Bike

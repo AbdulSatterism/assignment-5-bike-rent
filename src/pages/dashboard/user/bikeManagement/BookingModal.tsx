@@ -33,11 +33,21 @@ const BookingModal = ({ bikeId, setIsModalOpen }: TBook) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="modal-box">
+      <div className="modal-box text-gray-400">
         <h2 className="font-bold text-2xl text-center uppercase text-blue-600">
           Book Your Ride
         </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Coupon Code Optional</span>
+            </label>
+            <input
+              type="text"
+              {...register("coupon", { required: false })}
+              className="input input-bordered"
+            />
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Start Time</span>

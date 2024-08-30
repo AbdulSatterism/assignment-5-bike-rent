@@ -5,6 +5,7 @@ import { MdDirectionsBike, MdElectricBike } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAppSelector } from "../redux/hooks";
 import { useEffect, useState } from "react";
+import { RiCoupon3Fill } from "react-icons/ri";
 
 const DashboardLayout = () => {
   const { user } = useAppSelector((state) => state?.auth);
@@ -43,7 +44,7 @@ const DashboardLayout = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-60   bg-gray-900 opacity-90 min-h-full text-xl">
+        <ul className="menu p-4 w-60  border-r-2 border-gray-500 bg-gray-900 opacity-90 min-h-full text-xl">
           {/* Sidebar content here */}
           {user && user?.role !== "admin" ? (
             <>
@@ -86,10 +87,17 @@ const DashboardLayout = () => {
                   User Manage
                 </NavLink>
               </li>
+
               <li className="text-white">
                 <NavLink to="/dashboard/return-rental-bike">
                   <MdElectricBike />
                   Return Bike
+                </NavLink>
+              </li>
+              <li className="text-white">
+                <NavLink to="/dashboard/coupon-manage">
+                  <RiCoupon3Fill />
+                  Coupon
                 </NavLink>
               </li>
             </>

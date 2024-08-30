@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   useMyBookingQuery,
+  usePaymentMutation,
   useReturnRentalBikeMutation,
 } from "../../../redux/features/bikes/BikeApi";
 import Loading from "../../../components/Loading";
@@ -12,6 +13,7 @@ const ReturnRentalBike = () => {
   const { data: rentals, isLoading } = useMyBookingQuery(undefined);
   const [returnRentalBike, { isLoading: returnLoading }] =
     useReturnRentalBikeMutation();
+    const [payment, { isLoading: paymentLoading }] = usePaymentMutation();
 
   const handleReturnRental = async (id: string) => {
     try {
@@ -41,6 +43,28 @@ const ReturnRentalBike = () => {
       });
     }
   };
+
+//payment if need to admin
+const handlePayment = async (rental: any) => {
+  const paymentInfo = {
+    customerName: rental?.userId?.name,
+    customerPhone: rental?.userId?.phone,
+    customerAddress: rental?.userId?.address,
+    customerEmail: rental?.userId?.email,
+    amount: rental?.totalCost,
+    rentalId: rental?._id,
+  };
+
+  try {
+    const res = await payment(paymentInfo).unwrap();
+    console.log(res.data.payment_url);
+    if (res?.success) {
+      window.location.href = res.data.payment_url;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   if (isLoading) {
     return <Loading />;
@@ -95,7 +119,8 @@ const ReturnRentalBike = () => {
                   <td className="mx-4">
                     {rental?.isReturn ? (
                       <button
-                        // onClick={() => handleReturnRental(rental?._id)}
+                      disabled={paymentLoading}
+                      onClick={() => handlePayment(rental)}
                         className="bg-blue-600 btn hover:bg-blue-400 text-white px-4 py-2 rounded mr-2"
                       >
                         Pay now

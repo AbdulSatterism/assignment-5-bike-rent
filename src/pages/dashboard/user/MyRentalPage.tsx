@@ -9,7 +9,7 @@ import { TRental } from "../../../types/bike.type";
 const MyRentalPage = () => {
   const [activeTab, setActiveTab] = useState<"paid" | "unpaid">("unpaid");
   const { data: rentals, isLoading } = useMyBookingQuery(undefined);
-  const [payment, { isLoading: paymetLoading }] = usePaymentMutation();
+  const [payment, { isLoading: paymentLoading }] = usePaymentMutation();
   // const history = useHistory();
 
   const handleTabSwitch = (tab: "paid" | "unpaid") => {
@@ -112,19 +112,18 @@ const MyRentalPage = () => {
                       </span>
                     )}
                   </p>
-
                   <p className="text-gray-700 font-bold">
                     Cost:{" "}
                     <span className="text-orange-600 font-extrabold">
                       {rental.totalCost}
                     </span>
-                    TK
+                    TK {rental?.coupon ? "with discount" : ""}
                   </p>
                 </div>
                 {/* Pay Button for Unpaid Rentals */}
                 {activeTab === "unpaid" && (
                   <button
-                    disabled={paymetLoading}
+                    disabled={paymentLoading}
                     onClick={() => handlePayment(rental)}
                     className="mt-4 px-4 py-2 btn bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-300"
                   >

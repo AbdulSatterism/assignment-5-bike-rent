@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
-    <div className="mt-16 mb-0 shadow-sm">
+    <div className="mt-20 mb-0 shadow-sm shadow-blue-600">
       <footer className="footer justify-evenly p-12 bg-gray-900 text-white">
         <nav>
           <h6 className="footer-title">Bike Share</h6>

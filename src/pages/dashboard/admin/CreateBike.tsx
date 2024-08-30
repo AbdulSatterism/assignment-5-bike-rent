@@ -4,8 +4,10 @@ import { useCreateBikeMutation } from "../../../redux/features/bikes/BikeApi";
 import { toast } from "sonner";
 import Modal from "../../../components/Modal";
 
-
-const CreateBike = ({ isModalOpen, setIsModalOpen }: any) => {
+const CreateBike = ({
+  isCreateBikeModalOpen,
+  setIsCreateBikeModalOpen,
+}: any) => {
   //   const [isModalOpen, setIsModalOpen] = useState(false);
   const [createBike] = useCreateBikeMutation();
 
@@ -46,8 +48,8 @@ const CreateBike = ({ isModalOpen, setIsModalOpen }: any) => {
   return (
     <div>
       <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isCreateBikeModalOpen}
+        onClose={() => setIsCreateBikeModalOpen(false)}
         title="Create new bike"
         onSubmit={handleBikeCreate}
         fields={[

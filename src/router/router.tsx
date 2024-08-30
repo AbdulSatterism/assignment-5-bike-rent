@@ -17,6 +17,7 @@ import Contact from "../pages/home/contact/Contact";
 import About from "../pages/About";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminProtected from "./AdminProtected";
+import Coupon from "../pages/dashboard/admin/Coupon";
 
 const router = createBrowserRouter([
   {
@@ -118,8 +119,15 @@ const router = createBrowserRouter([
         path: "return-rental-bike",
         element: (
           <AdminProtected>
-            {" "}
             <ReturnRentalBike />
+          </AdminProtected>
+        ),
+      },
+      {
+        path: "coupon-manage",
+        element: (
+          <AdminProtected>
+            <Coupon />
           </AdminProtected>
         ),
       },

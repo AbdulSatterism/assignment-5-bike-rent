@@ -17,7 +17,38 @@ const ReviewsApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["review"],
     }),
+
+    allCoupon: builder.query({
+      query: () => ({
+        url: "/coupon",
+        method: "GET",
+      }),
+      providesTags: ["coupon"],
+    }),
+
+    addCoupon: builder.mutation({
+      query: (couponData) => ({
+        url: `/coupon`,
+        method: "POST",
+        body: couponData,
+      }),
+      invalidatesTags: ["coupon"],
+    }),
+
+    deleteCoupon: builder.mutation({
+      query: (id) => ({
+        url: `/coupon/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["coupon"],
+    }),
   }),
 });
 
-export const { useGetAllReviewsQuery, useAddReviewMutation } = ReviewsApi;
+export const {
+  useGetAllReviewsQuery,
+  useAddReviewMutation,
+  useAddCouponMutation,
+  useAllCouponQuery,
+  useDeleteCouponMutation,
+} = ReviewsApi;

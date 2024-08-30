@@ -20,6 +20,7 @@ export type TRental = {
   startTime: string;
   returnTime: string;
   payment: string;
+  coupon: string;
   totalCost: number;
   isReturn: boolean;
   __v: number;

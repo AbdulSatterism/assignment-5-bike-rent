@@ -3,7 +3,7 @@ import Contact from "./home/contact/Contact";
 const About = () => {
   return (
     <>
-      <div className="p-8 my-10 bg-white shadow-sm">
+      <div className="p-8 my-10 shadow-sm shadow-blue-600">
         <h3 className="text-xl font-bold text-blue-600 uppercase text-center">
           about
         </h3>

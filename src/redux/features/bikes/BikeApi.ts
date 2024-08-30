@@ -37,6 +37,14 @@ const BikeApi = baseApi.injectEndpoints({
       invalidatesTags: ["bike"],
     }),
 
+    updateRating: builder.mutation({
+      query: (id) => ({
+        url: `/bikes/rating/${id}`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["bike"],
+    }),
+
     deleteBike: builder.mutation({
       query: (id) => ({
         url: `/bikes/${id}`,
@@ -91,4 +99,5 @@ export const {
   useDeleteBikeMutation,
   useReturnRentalBikeMutation,
   usePaymentMutation,
+  useUpdateRatingMutation,
 } = BikeApi;

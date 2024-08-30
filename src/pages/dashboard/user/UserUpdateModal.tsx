@@ -3,13 +3,17 @@ import { toast } from "sonner";
 import Modal from "../../../components/Modal";
 import { useUserUpdateByAdminMutation } from "../../../redux/features/users/UserApi";
 
-const UserUpdateModal = ({ isModalOpen, setIsModalOpen, user }: any) => {
+const UserUpdateModal = ({
+  isUserModalOpen,
+  setIsUserModalOpen,
+  user,
+}: any) => {
   const [updateUser] = useUserUpdateByAdminMutation();
 
   const handleUpdateProfile = async (formData: { [key: string]: any }) => {
     const toastId = toast.loading("updating....");
     const updateUserData = {
-      info: { ...formData, isDeleted: Boolean(formData.isDeleted) },
+      info: { ...formData },
       id: user?._id,
     };
     try {
@@ -28,8 +32,8 @@ const UserUpdateModal = ({ isModalOpen, setIsModalOpen, user }: any) => {
   return (
     <div>
       <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isUserModalOpen}
+        onClose={() => setIsUserModalOpen(false)}
         title="Update Profile"
         onSubmit={handleUpdateProfile}
         fields={[
@@ -50,12 +54,6 @@ const UserUpdateModal = ({ isModalOpen, setIsModalOpen, user }: any) => {
             defaultValue: user?.phone,
             type: "text",
             label: "Phone",
-          },
-          {
-            name: "isDeleted",
-            defaultValue: user?.isDeleted,
-            type: "text",
-            label: "Is Deleted",
           },
           {
             name: "address",

@@ -7,3 +7,11 @@ export type TReview = {
   updatedAt: string;
   __v: number;
 };
+export type TCoupon = {
+  _id: string;
+  couponCode: string;
+  discount: number;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};

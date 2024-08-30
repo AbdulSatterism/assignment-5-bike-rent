@@ -27,7 +27,7 @@ const ModalInput = ({
       )}
 
       <input
-        {...(register(name), { required: true })}
+        {...register(name, { required: true })}
         type={type}
         defaultValue={defaultValue}
         placeholder={placeholder}
