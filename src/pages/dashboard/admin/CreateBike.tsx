@@ -11,7 +11,7 @@ const CreateBike = ({
   //   const [isModalOpen, setIsModalOpen] = useState(false);
   const [createBike] = useCreateBikeMutation();
 
-  //create bike
+  //
   const imageHostingToken = import.meta.env.VITE_APP_image_token;
   const imageHostingURL = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`;
   const handleBikeCreate = async (bikeData: { [key: string]: any }) => {
