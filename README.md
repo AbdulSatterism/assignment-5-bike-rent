@@ -1,83 +1,45 @@
-<!--
+<-----------------
+------------------technology-
+*React vite,
+*typescript,  
+ _react router dom,
+_ react icons,
+*Redux and Redux RTK query
+*react rating, 2. design purpose : tailwind css and daisy ui. and equvilant technology.
 
---------Instruction--------------
-font-end technology :
-1. React Vite, typescript, Redux toolkit, and Redux RTK ,
-2. design purpose :  tailwind css and daisy ui. and equvilant technology.
+----------------Instruction----------
 
-* My website name : ABS Sports
-#Functionality :
-------------Home---------
-* Have a home slider where show latest 3 product image.
-* Have home Features product where show latest 4 product and 3 product under have a all product button
-* have category featutes it's define all category.
+@ Navbar: navbar has some nav item and site logo , navbar has dark mode and light mode button
 
------------Nav and footer ----------
-* Have a nav bar and footer
+1. Home page
 
--------- not found and success route -------------
-* have success route and 404 route. where success route for confirmed order with cash on delivery
+# home page has some nested pages , banner, available bike name is featutes ,coupon page, rules, testimonial, video section, our services.
 
---------all products pages --------------
+if user click view details then need to permision of user. and redirect details page.
 
-* all product route has 5 Functionality , search by name , filter by price , category,brand, and maximum price minimum price, filter by rating details button every product have pagination initially per page show 6 products
+2.Register page:
+if user not Register yet him should take Register and login for access dashboard
 
-------single product details -------
-* details product page has some Functionality like here show all things and add to cart button it's work only Redux store locally
+3. Login page: need email and password for login
 
--------management part--------
-*have product management page where have side bar and where user can add product, update product, delete product,
+4. dashboard:
+   dashboard is private need valid user for access dashboard
 
-------------cart ---------
-*cart pages has some Functionality where user can increase and decrease product quantity and delete product from cart
+--------------dashboard has two type method ----------
 
-----place order ------
-*place order take user info with total payable amount and it's implement for cash on delivery
-*after place order create a user .
+---------User-------------
+====> email: user@gmail.com and password : 123456
 
-------------------Thats all about my development---------
+1. Profile : here user can see his profile
+   2.my rental page:
+   and othes..
 
+-----------Admin--------
+====> email : admin@gmail.com and password: 123456
 
+1.User management page 2. bike management page 3. return rental page
+4.coupon management page
 
+\_--- admin can do all things like user management bike management coupon management and others things.
 
-
-
-
-
-
-
-
-
-
- -->
-
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+> ---
