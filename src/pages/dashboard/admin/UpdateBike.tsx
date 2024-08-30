@@ -9,6 +9,7 @@ const UpdateBike = ({ isModalOpen, setIsModalOpen, bike, loading }: any) => {
   const [updateBike] = useUpdateBikeMutation();
 
   const handleBikeUpdate = async (bikeData: { [key: string]: any }) => {
+    const toastId = toast.loading("updating bike.");
     try {
       const bikeInfo = {
         updateInfo: {
@@ -23,10 +24,11 @@ const UpdateBike = ({ isModalOpen, setIsModalOpen, bike, loading }: any) => {
       const result = await updateBike(bikeInfo).unwrap();
 
       if (result?.success) {
-        toast.success(result?.message, { duration: 2000 });
+        toast.success(result?.message, { id: toastId, duration: 2000 });
       }
     } catch (err: any) {
       toast.error(err?.error || err?.data?.message, {
+        id: toastId,
         duration: 2000,
       });
     }

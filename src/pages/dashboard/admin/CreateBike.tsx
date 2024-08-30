@@ -15,6 +15,7 @@ const CreateBike = ({
   const imageHostingToken = import.meta.env.VITE_APP_image_token;
   const imageHostingURL = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`;
   const handleBikeCreate = async (bikeData: { [key: string]: any }) => {
+    const toastId = toast.loading("creating....");
     try {
       // Upload image to ImgBB
       const formData = new FormData();
@@ -36,10 +37,11 @@ const CreateBike = ({
 
       const result = await createBike(bikeInfo).unwrap();
       if (result?.success) {
-        toast.success(result?.message, { duration: 2000 });
+        toast.success(result?.message, { id: toastId, duration: 2000 });
       }
     } catch (err: any) {
       toast.error(err?.error || err?.data?.message, {
+        id: toastId,
         duration: 2000,
       });
     }
