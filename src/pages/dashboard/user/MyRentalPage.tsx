@@ -123,7 +123,7 @@ const MyRentalPage = () => {
                 {/* Pay Button for Unpaid Rentals */}
                 {activeTab === "unpaid" && (
                   <button
-                    disabled={paymentLoading}
+                    disabled={paymentLoading || !rental?.isReturn}
                     onClick={() => handlePayment(rental)}
                     className="mt-4 px-4 py-2 btn bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-300"
                   >

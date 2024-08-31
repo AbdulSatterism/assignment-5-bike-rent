@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   useGetSingleBikeQuery,
   useUpdateRatingMutation,
@@ -12,8 +12,10 @@ import { FaComment } from "react-icons/fa";
 import AddReviewModal from "../AddReviewModal";
 import Rating from "react-rating";
 import { toast } from "sonner";
+import { useAppSelector } from "../../../../redux/hooks";
 
 const BikeDetails = () => {
+  const { token } = useAppSelector((state) => state?.auth);
   const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isReviewModal, setReviewModal] = useState(false);
@@ -100,13 +102,25 @@ const BikeDetails = () => {
                 }
               />
             </div>
-            <button
-              disabled={!bike?.data?.isAvailable}
-              onClick={() => setIsModalOpen(true)}
-              className="mt-4 px-4 py-2 btn bg-blue-600 hover:bg-blue-400  text-white rounded-lg items-center flex gap-2"
-            >
-              Book Now <MdDirectionsBike />
-            </button>
+            {token && token ? (
+              <button
+                disabled={!bike?.data?.isAvailable}
+                onClick={() => setIsModalOpen(true)}
+                className="mt-4 px-4 py-2 btn bg-blue-600 hover:bg-blue-400  text-white rounded-lg items-center flex gap-2"
+              >
+                Book Now <MdDirectionsBike />
+              </button>
+            ) : (
+              <Link to="/login">
+                <button
+                  disabled={!bike?.data?.isAvailable}
+                  onClick={() => setIsModalOpen(true)}
+                  className="mt-4 px-4 py-2 btn bg-blue-600 hover:bg-blue-400  text-white rounded-lg items-center flex gap-2"
+                >
+                  Book Now <MdDirectionsBike />
+                </button>
+              </Link>
+            )}
           </div>
         </div>
 

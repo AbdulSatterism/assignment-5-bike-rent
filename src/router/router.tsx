@@ -29,6 +29,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/all-bike",
+        element: <AllBike />,
+      },
+      {
+        path: "/bike-details/:id",
+        element: <BikeDetails />,
+      },
+      {
         path: "/register",
         element: <Signup />,
       },
@@ -70,14 +78,6 @@ const router = createBrowserRouter([
       {
         path: "my-rentals",
         element: <MyRentalPage />,
-      },
-      {
-        path: "all-bikes",
-        element: <AllBike />,
-      },
-      {
-        path: "bike-details/:id",
-        element: <BikeDetails />,
       },
 
       // admin routes

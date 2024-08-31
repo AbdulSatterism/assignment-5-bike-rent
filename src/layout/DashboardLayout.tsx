@@ -60,12 +60,6 @@ const DashboardLayout = () => {
                   My Rentals
                 </NavLink>
               </li>
-              <li className="text-white">
-                <NavLink to="/dashboard/all-bikes">
-                  <MdElectricBike />
-                  All Bikes
-                </NavLink>
-              </li>
             </>
           ) : (
             <>

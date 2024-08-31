@@ -9,8 +9,12 @@ const AllBike = () => {
   const [search, setSearch] = useState("");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
+  const [page, setPage] = useState(1);
+  const limit = 6;
   const { data: bikes, isLoading } = useGetAllBikesQuery(
     {
+      page,
+      limit,
       search,
       model,
       brand,
@@ -108,7 +112,7 @@ const AllBike = () => {
                   </h3>
                 </div>
               </div>
-              <Link to={`/dashboard/bike-details/${bike?._id}`}>
+              <Link to={`/bike-details/${bike?._id}`}>
                 <button
                   disabled={!bike.isAvailable}
                   className="mt-2 px-4 py-2 btn bg-blue-600 text-white rounded-lg items-center flex gap-2"
@@ -118,6 +122,29 @@ const AllBike = () => {
               </Link>
             </div>
           ))}
+        </div>
+
+        <div className="flex items-center justify-center p-8 mt-8">
+          <button
+            className="btn btn-outline"
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+          >
+            Previous
+          </button>
+          <input
+            type="number"
+            value={page}
+            min="1"
+            className="w-12 px-2 py-1 mx-2 text-center border rounded-md"
+          />
+          <button
+            disabled={bikes?.data?.length < limit}
+            className="btn btn-outline"
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </button>
         </div>
       </div>
     </>

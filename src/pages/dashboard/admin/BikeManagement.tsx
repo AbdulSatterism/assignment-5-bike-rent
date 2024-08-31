@@ -15,6 +15,8 @@ const BikeManagement = () => {
   const [search, setSearch] = useState("");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
+  const [page, setPage] = useState(1);
+  const limit = 6;
   const [updateBikeInfo, setUpdateBikeInfo] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreateBikeModalOpen, setIsCreateBikeModalOpen] = useState(false);
@@ -22,6 +24,8 @@ const BikeManagement = () => {
   const { data: bikes, isLoading } = useGetAllBikesQuery(
     {
       search,
+      page,
+      limit,
       model,
       brand,
     } || undefined
@@ -198,6 +202,29 @@ const BikeManagement = () => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="flex items-center justify-center p-8 mt-8">
+          <button
+            className="btn btn-outline"
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+          >
+            Previous
+          </button>
+          <input
+            type="number"
+            value={page}
+            min="1"
+            className="w-12 px-2 py-1 mx-2 text-center border rounded-md"
+          />
+          <button
+            disabled={bikes?.data?.length < limit}
+            className="btn btn-outline"
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </button>
         </div>
       </div>
     </>
