@@ -216,7 +216,7 @@ const BikeManagement = () => {
             type="number"
             value={page}
             min="1"
-            className="w-12 px-2 py-1 mx-2 text-center border rounded-md"
+            className="w-12 px-2 py-1 mx-2 text-gray-400 text-center border rounded-md"
           />
           <button
             disabled={bikes?.data?.length < limit}
