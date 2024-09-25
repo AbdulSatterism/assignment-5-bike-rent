@@ -43,7 +43,7 @@ const Signup = () => {
             <input
               type="text"
               placeholder="enter your name"
-              className="input input-bordered"
+              className="input input-bordered text-gray-400"
               {...register("name")}
             />
           </div>
@@ -54,7 +54,7 @@ const Signup = () => {
             <input
               type="email"
               placeholder="enter your email"
-              className="input input-bordered"
+              className="input input-bordered text-gray-400"
               {...register("email")}
             />
           </div>
@@ -65,7 +65,7 @@ const Signup = () => {
             <input
               type="password"
               placeholder="password"
-              className="input input-bordered"
+              className="input input-bordered text-gray-400"
               {...register("password")}
             />
           </div>
@@ -76,7 +76,7 @@ const Signup = () => {
             <input
               type="text"
               placeholder="enter your phone"
-              className="input input-bordered"
+              className="input input-bordered text-gray-400"
               {...register("phone")}
             />
           </div>
@@ -87,7 +87,7 @@ const Signup = () => {
             <input
               type="text"
               placeholder="enter your address"
-              className="input input-bordered"
+              className="input input-bordered text-gray-400"
               {...register("address")}
             />
           </div>

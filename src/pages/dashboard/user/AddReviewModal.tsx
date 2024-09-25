@@ -53,7 +53,7 @@ const AddReviewModal = ({ setReviewModal }: any) => {
             <textarea
               {...register("description", { required: true })}
               placeholder="write your thinks"
-              className="textarea textarea-bordered textarea-md w-full"
+              className="textarea textarea-bordered textarea-md w-full text-gray-400"
             ></textarea>
           </div>
           <div className="modal-action">
