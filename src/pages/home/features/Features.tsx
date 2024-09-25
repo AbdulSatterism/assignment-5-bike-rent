@@ -41,7 +41,7 @@ const Features = () => {
         <select
           value={brand}
           onChange={(e) => setBrand(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg shadow-sm "
+          className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-[#04211c"
         >
           <option value="">Brands</option>
           <option value="Yamaha">Yamaha</option>
@@ -50,9 +50,9 @@ const Features = () => {
           <option value="Hero">Hero</option>
         </select>
         <select
-          value={brand}
+          value={model}
           onChange={(e) => setModel(e.target.value)}
-          className="w-full px-4 py-2  border rounded-lg shadow-sm"
+          className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-[#04211c"
         >
           <option value="">Model</option>
           <option value="R15">R15</option>

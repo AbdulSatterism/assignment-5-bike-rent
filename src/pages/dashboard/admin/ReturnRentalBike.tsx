@@ -123,7 +123,7 @@ const ReturnRentalBike = () => {
                         onClick={() => handlePayment(rental)}
                         className="bg-blue-600 btn hover:bg-blue-400 text-white px-4 py-2 rounded mr-2"
                       >
-                        Pay now
+                        {rental?.payment === "paid" ? "paid" : "pay now"}
                       </button>
                     ) : (
                       <button

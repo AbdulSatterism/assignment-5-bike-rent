@@ -18,6 +18,7 @@ import About from "../pages/About";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminProtected from "./AdminProtected";
 import Coupon from "../pages/dashboard/admin/Coupon";
+import ViewBikes from "../pages/dashboard/user/bikeManagement/ViewBikes";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "my-rentals",
         element: <MyRentalPage />,
+      },
+      {
+        path: "view-bikes",
+        element: <ViewBikes />,
       },
 
       // admin routes

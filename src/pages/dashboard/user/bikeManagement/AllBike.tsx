@@ -54,7 +54,7 @@ const AllBike = () => {
           <option value="Hero">Hero</option>
         </select>
         <select
-          value={brand}
+          value={model}
           onChange={(e) => setModel(e.target.value)}
           className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-[#04211c"
         >

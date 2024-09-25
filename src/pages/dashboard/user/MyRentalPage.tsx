@@ -5,6 +5,7 @@ import {
   usePaymentMutation,
 } from "../../../redux/features/bikes/BikeApi";
 import { TRental } from "../../../types/bike.type";
+import Loading from "../../../components/Loading";
 
 const MyRentalPage = () => {
   const [activeTab, setActiveTab] = useState<"paid" | "unpaid">("unpaid");
@@ -73,7 +74,7 @@ const MyRentalPage = () => {
 
       {/* Rental List */}
       {isLoading ? (
-        <p>Loading rentals...</p>
+        <Loading />
       ) : filteredRentals?.length ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredRentals.map((rental: TRental) => (

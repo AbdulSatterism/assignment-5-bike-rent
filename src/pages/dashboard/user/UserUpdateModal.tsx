@@ -43,12 +43,7 @@ const UserUpdateModal = ({
             type: "text",
             label: "Name",
           },
-          {
-            name: "email",
-            type: "email",
-            defaultValue: user?.email,
-            label: "Email",
-          },
+
           {
             name: "phone",
             defaultValue: user?.phone,

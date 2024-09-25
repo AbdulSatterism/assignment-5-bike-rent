@@ -73,12 +73,6 @@ const UserProfile = () => {
             label: "Name",
           },
           {
-            name: "email",
-            type: "email",
-            defaultValue: userData?.data?.email,
-            label: "Email",
-          },
-          {
             name: "phone",
             defaultValue: userData?.data?.phone,
             type: "text",
